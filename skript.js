@@ -210,6 +210,10 @@ form.addEventListener("submit", (e) => {
         errors.push("Sisesta perenimi")
     }
 
+    if ( numbriteRegex.test( perenimi.value ) ) {
+        errors.push( "Perenimes ei tohi esineda numbreid" )
+    }
+
     const telRegex = new RegExp( "^[0-9]{5}[0-9]+$" );
     if ( !telRegex.test( telefon.value ) ) {
         errors.push( "Telefoninumber peab koosnema ainult numbritest ja olema vahemalt 6 numbri pikkune" )
@@ -282,4 +286,5 @@ tarneIsejarele.addEventListener( "click", ( e ) => {
 
     tarneHind = 0;
     tooteMuutumisel( );
+
 } );
